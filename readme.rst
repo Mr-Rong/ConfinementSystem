@@ -4,7 +4,7 @@ Super Admin Crednetial
 email: admin@admin.com
 password: password
 
-database name: stock
+database name: mothercare
 
 
 ###################
@@ -26,13 +26,6 @@ Release Information
 This repo contains in-development code for future releases. To download the
 latest stable release please visit the `CodeIgniter Downloads
 <https://codeigniter.com/download>`_ page.
-
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
 
 *******************
 Server Requirements
