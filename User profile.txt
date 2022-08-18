@@ -1,0 +1,73 @@
+Users
+1.
+Groups : Administrator
+Username : Main_admin
+Email : admin@admin.com
+Password : password
+First name : Mr
+Last name : Rong
+Phone : 0167876681
+Gender : Male
+
+2.
+Groups : Confinement Center
+Username : Center A
+Email : centerA@centerA.com
+Password : center1a
+First name : Confinement
+Last name : Center A
+Phone : 0123456789
+Gender : Male
+
+3.
+Groups : Confinement Center
+Username : Center B
+Email : centerB@centerB.com
+Password : center1b
+First name : Confinement
+Last name : Center b
+Phone : 0123456788
+Gender : Male
+
+4.
+Groups : Individual
+Username : Individual A
+Email : indiA@indiA.com
+Password : individuala
+First name : indi
+Last name : vidual A
+Phone : 01987654321
+Gender : Male
+
+5.
+Groups : Individual
+Username : Individual b
+Email : indiB@indiB.com
+Password : individualb
+First name : indi
+Last name : vidual B
+Phone : 01987654322
+Gender : Male
+
+
+Address
+1. Jalan Usahawan, Cyberjaya, 63000 Cyberjaya, Selangor - Confinement Center B
+PN:0123456783
+
+2. Apartment Presint 16, Presint 16, 62150 Putrajaya, Wilayah Persekutuan Putrajaya - Confinement Center C
+PN:0123456784
+
+3. no 2, jalan 5, Jalan Desa Ros, Taman Desa Ros, 43000 Kajang, Selangor - Confinement Center C
+PN:0123456785
+
+4. 1, Jalan PU 5, Taman Puchong Utama, 47100 Puchong, Selangor - Confinement Center D
+PN:0123456786
+
+5. No.4, Jalan Sungai Garing 27/61, Taman Alam Megah, Seksyen 27, 40400 Shah Alam, Selangor - Confinement Center E
+PN:0123456787
+
+6. Lot PT 25433, Mukim Cheras, Bandar Tun Hussein Onn, Cheras, Tun Hussein Onn, 43200 Cheras, Selangor - Confinement Center F
+PN: 0123456788
+
+7. Jalan Usahawan, Cyberjaya, 63000 Cyberjaya, Selangor - Confinement Center A
+PN: 0123456789

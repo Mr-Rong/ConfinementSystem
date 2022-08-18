@@ -16,7 +16,7 @@ class Products extends Admin_Controller
 		$this->load->model('model_brands');
 		$this->load->model('model_category');
 		$this->load->model('model_stores');
-		$this->load->model('model_attributes');
+		//$this->load->model('model_attributes');
 	}
 
     /* 
@@ -60,7 +60,7 @@ class Products extends Admin_Controller
             $availability = ($value['availability'] == 1) ? '<span class="label label-success">Active</span>' : '<span class="label label-warning">Inactive</span>';
 
             $qty_status = '';
-            if($value['qty'] <= 10) {
+            if($value['qty'] <= 3) {
                 $qty_status = '<span class="label label-warning">Low !</span>';
             } else if($value['qty'] <= 0) {
                 $qty_status = '<span class="label label-danger">Out of stock !</span>';
@@ -69,7 +69,7 @@ class Products extends Admin_Controller
 
 			$result['data'][$key] = array(
 				$img,
-				$value['sku'],
+				//$value['sku'],
 				$value['name'],
 				$value['price'],
                 $value['qty'] . ' ' . $qty_status,
@@ -94,7 +94,7 @@ class Products extends Admin_Controller
         }
 
 		$this->form_validation->set_rules('product_name', 'Product name', 'trim|required');
-		$this->form_validation->set_rules('sku', 'SKU', 'trim|required');
+		//$this->form_validation->set_rules('sku', 'SKU', 'trim|required');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required');
 		$this->form_validation->set_rules('qty', 'Qty', 'trim|required');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
@@ -107,12 +107,12 @@ class Products extends Admin_Controller
 
         	$data = array(
         		'name' => $this->input->post('product_name'),
-        		'sku' => $this->input->post('sku'),
+        		//'sku' => $this->input->post('sku'),
         		'price' => $this->input->post('price'),
         		'qty' => $this->input->post('qty'),
         		'image' => $upload_image,
         		'description' => $this->input->post('description'),
-        		'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
+        		//'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
         		'brand_id' => json_encode($this->input->post('brands')),
         		'category_id' => json_encode($this->input->post('category')),
                 'store_id' => $this->input->post('store'),
@@ -133,18 +133,18 @@ class Products extends Admin_Controller
             // false case
 
         	// attributes 
-        	$attribute_data = $this->model_attributes->getActiveAttributeData();
+        	// $attribute_data = $this->model_attributes->getActiveAttributeData();
 
-        	$attributes_final_data = array();
-        	foreach ($attribute_data as $k => $v) {
-        		$attributes_final_data[$k]['attribute_data'] = $v;
+        	// $attributes_final_data = array();
+        	// foreach ($attribute_data as $k => $v) {
+        	// 	$attributes_final_data[$k]['attribute_data'] = $v;
 
-        		$value = $this->model_attributes->getAttributeValueData($v['id']);
+        	// 	$value = $this->model_attributes->getAttributeValueData($v['id']);
 
-        		$attributes_final_data[$k]['attribute_value'] = $value;
-        	}
+        	// 	$attributes_final_data[$k]['attribute_value'] = $value;
+        	// }
 
-        	$this->data['attributes'] = $attributes_final_data;
+        	// $this->data['attributes'] = $attributes_final_data;
 			$this->data['brands'] = $this->model_brands->getActiveBrands();        	
 			$this->data['category'] = $this->model_category->getActiveCategroy();        	
 			$this->data['stores'] = $this->model_stores->getActiveStore();        	
@@ -201,7 +201,7 @@ class Products extends Admin_Controller
         }
 
         $this->form_validation->set_rules('product_name', 'Product name', 'trim|required');
-        $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
+        //$this->form_validation->set_rules('sku', 'SKU', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('qty', 'Qty', 'trim|required');
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
@@ -212,11 +212,11 @@ class Products extends Admin_Controller
             
             $data = array(
                 'name' => $this->input->post('product_name'),
-                'sku' => $this->input->post('sku'),
+                //'sku' => $this->input->post('sku'),
                 'price' => $this->input->post('price'),
                 'qty' => $this->input->post('qty'),
                 'description' => $this->input->post('description'),
-                'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
+                //'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
                 'brand_id' => json_encode($this->input->post('brands')),
                 'category_id' => json_encode($this->input->post('category')),
                 'store_id' => $this->input->post('store'),
@@ -243,19 +243,19 @@ class Products extends Admin_Controller
         }
         else {
             // attributes 
-            $attribute_data = $this->model_attributes->getActiveAttributeData();
+            // $attribute_data = $this->model_attributes->getActiveAttributeData();
 
-            $attributes_final_data = array();
-            foreach ($attribute_data as $k => $v) {
-                $attributes_final_data[$k]['attribute_data'] = $v;
+            // $attributes_final_data = array();
+            // foreach ($attribute_data as $k => $v) {
+            //     $attributes_final_data[$k]['attribute_data'] = $v;
 
-                $value = $this->model_attributes->getAttributeValueData($v['id']);
+            //     $value = $this->model_attributes->getAttributeValueData($v['id']);
 
-                $attributes_final_data[$k]['attribute_value'] = $value;
-            }
+            //     $attributes_final_data[$k]['attribute_value'] = $value;
+            // }
             
-            // false case
-            $this->data['attributes'] = $attributes_final_data;
+            // // false case
+            // $this->data['attributes'] = $attributes_final_data;
             $this->data['brands'] = $this->model_brands->getActiveBrands();         
             $this->data['category'] = $this->model_category->getActiveCategroy();           
             $this->data['stores'] = $this->model_stores->getActiveStore();          

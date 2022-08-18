@@ -31,7 +31,7 @@ class Model_reports extends CI_Model
 		return $return_data;
 	}
 
-	// getting the order reports based on the year and moths
+	// getting the order data based on the year and months
 	public function getOrderData($year)
 	{	
 		if($year) {
@@ -39,7 +39,7 @@ class Model_reports extends CI_Model
 			
 			$sql = "SELECT * FROM orders WHERE paid_status = ?";
 			$query = $this->db->query($sql, array(1));
-			$result = $query->result_array();
+			$result = $query->result_array(); //get multiple row of data from sql
 
 			$final_data = array();
 			foreach ($months as $month_k => $month_y) {

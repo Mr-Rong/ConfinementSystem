@@ -35,7 +35,7 @@
         <?php endif; ?>
 
         <?php //if(in_array('createGroup', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Attribute</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Service</button>
           <br /> <br />
         <?php //endif; ?>
 
