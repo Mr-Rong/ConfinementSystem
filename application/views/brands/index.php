@@ -1,16 +1,16 @@
 
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content --> 
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
       Manage
-      <small>Brands</small>
+      <small>Duration</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Brands</li>
+      <li class="active">Duration</li>
     </ol>
   </section>
 
@@ -35,20 +35,20 @@
         <?php endif; ?>
 
         <?php if(in_array('createBrand', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Brand</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Duration</button>
           <br /> <br />
         <?php endif; ?>
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Manage Brands</h3>
+            <h3 class="box-title">Manage Duration</h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Brand Name</th>
+                <th>Duration time</th>
                 <th>Status</th>
                 <?php if(in_array('updateBrand', $user_permission) || in_array('deleteBrand', $user_permission)): ?>
                   <th>Action</th>
@@ -79,7 +79,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Brand</h4>
+        <h4 class="modal-title">Add Duration</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('brands/create') ?>" method="post" id="createBrandForm">
@@ -87,8 +87,8 @@
         <div class="modal-body">
 
           <div class="form-group">
-            <label for="brand_name">Brand Name</label>
-            <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter brand name" autocomplete="off">
+            <label for="brand_name">Duration days</label>
+            <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter duration day" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="active">Status</label>
@@ -119,7 +119,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Edit Brand</h4>
+        <h4 class="modal-title">Edit duration</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('brands/update') ?>" method="post" id="updateBrandForm">
@@ -128,7 +128,7 @@
           <div id="messages"></div>
 
           <div class="form-group">
-            <label for="edit_brand_name">Brand Name</label>
+            <label for="edit_brand_name">Duration</label>
             <input type="text" class="form-control" id="edit_brand_name" name="edit_brand_name" placeholder="Enter brand name" autocomplete="off">
           </div>
           <div class="form-group">
@@ -160,7 +160,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Remove Brand</h4>
+        <h4 class="modal-title">Remove Duration</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('brands/remove') ?>" method="post" id="removeBrandForm">
@@ -180,12 +180,11 @@
 <?php endif; ?>
 
 
-
+<!-- ************************************************************************************************************************************* -->
 <script type="text/javascript">
 var manageTable;
 
 $(document).ready(function() {
-
   $("#brandNav").addClass('active');
 
   // initialize the datatable 
@@ -199,6 +198,7 @@ $(document).ready(function() {
     var form = $(this);
 
     // remove the text-danger
+    
     $(".text-danger").remove();
 
     $.ajax({
@@ -253,6 +253,10 @@ $(document).ready(function() {
 
 
 });
+
+
+/****************************************************************************************************************************************************************/
+
 
 function editBrand(id)
 { 

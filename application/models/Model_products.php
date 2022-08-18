@@ -53,12 +53,4 @@ class Model_products extends CI_Model
 			return ($delete == true) ? true : false;
 		}
 	}
-
-	public function countTotalProducts()
-	{
-		$sql = "SELECT * FROM products";
-		$query = $this->db->query($sql);
-		return $query->num_rows();
-	}
-
 }

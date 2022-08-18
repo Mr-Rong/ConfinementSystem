@@ -6,11 +6,11 @@
   <section class="content-header">
     <h1>
       Manage
-      <small>Products</small>
+      <small>Services</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Products</li>
+      <li class="active">Services</li>
     </ol>
   </section>
 
@@ -37,7 +37,7 @@
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Add Product</h3>
+            <h3 class="box-title">Add Service</h3>
           </div>
           <!-- /.box-header -->
           <form role="form" action="<?php base_url('users/create') ?>" method="post" enctype="multipart/form-data">
@@ -56,14 +56,18 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="product_name">Product name</label>
-                  <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" autocomplete="off"/>
+                  <label for="product_name">Service name</label>
+                  <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter service name" autocomplete="off"/>
                 </div>
-
+              
+                <!--Comments
+              
                 <div class="form-group">
                   <label for="sku">SKU</label>
                   <input type="text" class="form-control" id="sku" name="sku" placeholder="Enter sku" autocomplete="off" />
                 </div>
+
+                  -->
 
                 <div class="form-group">
                   <label for="price">Price</label>
@@ -82,21 +86,21 @@
                   </textarea>
                 </div>
 
-                <?php if($attributes): ?>
-                  <?php foreach ($attributes as $k => $v): ?>
+                <!-- <?php //if($attributes): ?>
+                  <?php //foreach ($attributes as $k => $v): ?>
                     <div class="form-group">
-                      <label for="groups"><?php echo $v['attribute_data']['name'] ?></label>
+                      <label for="groups"><?php //echo $v['attribute_data']['name'] ?></label>
                       <select class="form-control select_group" id="attributes_value_id" name="attributes_value_id[]" multiple="multiple">
-                        <?php foreach ($v['attribute_value'] as $k2 => $v2): ?>
-                          <option value="<?php echo $v2['id'] ?>"><?php echo $v2['value'] ?></option>
-                        <?php endforeach ?>
+                        <?php //foreach ($v['attribute_value'] as $k2 => $v2): ?>
+                          <option value="<?php //echo $v2['id'] ?>"><?php //echo $v2['value'] ?></option>
+                        <?php //endforeach ?>
                       </select>
                     </div>    
-                  <?php endforeach ?>
-                <?php endif; ?>
+                  <?php //endforeach ?>
+                <?php //endif; ?> -->
 
                 <div class="form-group">
-                  <label for="brands">Brands</label>
+                  <label for="brands">Duration</label>
                   <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
                     <?php foreach ($brands as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>

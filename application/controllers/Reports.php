@@ -21,16 +21,20 @@ class Reports extends Admin_Controller
             redirect('dashboard', 'refresh');
         }
 		
+		//set variable to year formet
 		$today_year = date('Y');
 
+		//get the user input if got
 		if($this->input->post('select_year')) {
 			$today_year = $this->input->post('select_year');
 		}
 
+
+		//get dataset with selected year from model
 		$parking_data = $this->model_reports->getOrderData($today_year);
 		$this->data['report_years'] = $this->model_reports->getOrderYear();
 		
-
+		//modify the filtered(year) data
 		$final_parking_data = array();
 		foreach ($parking_data as $k => $v) {
 			
@@ -48,11 +52,13 @@ class Reports extends Admin_Controller
 			}
 			
 		}
-		
+
+		//prepare the arranged dataset
 		$this->data['selected_year'] = $today_year;
 		$this->data['company_currency'] = $this->company_currency();
 		$this->data['results'] = $final_parking_data;
 
+		//return dataset to view
 		$this->render_template('reports/index', $this->data);
 	}
 }	

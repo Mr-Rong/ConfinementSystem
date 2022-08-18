@@ -6,11 +6,11 @@
   <section class="content-header">
     <h1>
       Manage
-      <small>Products</small>
+      <small>Services</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Products</li>
+      <li class="active">Services</li>
     </ol>
   </section>
 
@@ -49,7 +49,7 @@
               <thead>
               <tr>
                 <th>Image</th>
-                <th>SKU</th>
+                <!-- <th>SKU</th> -->
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Qty</th>

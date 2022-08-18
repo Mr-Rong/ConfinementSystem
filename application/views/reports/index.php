@@ -18,6 +18,7 @@
       <!-- Small boxes (Stat box) -->
       <div class="row">
 
+
         <div class="col-md-12 col-xs-12">
           <form class="form-inline" action="<?php echo base_url('reports/') ?>" method="POST">
             <div class="form-group">
@@ -32,8 +33,10 @@
           </form>
         </div>
 
+        
         <br /> <br />
 
+        
 
         <div class="col-md-12 col-xs-12">
 
@@ -51,7 +54,7 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Total Parking - Report</h3>
+              <h3 class="box-title">Total Sales - Report</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -61,6 +64,9 @@
             </div>
             <!-- /.box-body -->
           </div>
+
+
+
           <!-- /.box -->
           <div class="box">
             <div class="box-header">

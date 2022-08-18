@@ -131,7 +131,7 @@ class Brands extends Admin_Controller
 	/*
 	* Its checks the brand form validation 
 	* and if the validation is successfully then it updates the data into the database 
-	* and returns the json format operation messages
+	* and returns the json format operation messages 
 	*/
 	public function update($id)
 	{
