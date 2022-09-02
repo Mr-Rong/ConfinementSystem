@@ -74,7 +74,7 @@
                         <td><input type="checkbox" name="permission[]" id="permission" value="deleteGroup" class="minimal"></td>
                       </tr>
                       <tr>
-                        <td>Brands</td>
+                        <td>Durations</td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="createBrand" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="updateBrand" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="viewBrand" class="minimal"></td>
@@ -94,13 +94,13 @@
                         <td><input type="checkbox" name="permission[]" id="permission" value="viewStore" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="deleteStore" class="minimal"></td>
                       </tr>
-                      <tr>
+                      <!-- <tr>
                         <td>Attributes</td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="createAttribute" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="updateAttribute" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="viewAttribute" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="deleteAttribute" class="minimal"></td>
-                      </tr>
+                      </tr> -->
                       <tr>
                         <td>Products</td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="createProduct" class="minimal"></td>
@@ -115,13 +115,13 @@
                         <td><input type="checkbox" name="permission[]" id="permission" value="viewOrder" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="deleteOrder" class="minimal"></td>
                       </tr>
-                      <tr>
+                      <!-- <tr>
                         <td>Reports</td>
                         <td> - </td>
                         <td> - </td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="viewReports" class="minimal"></td>
                         <td> - </td>
-                      </tr>
+                      </tr> -->
                       <tr>
                         <td>Company</td>
                         <td> - </td>

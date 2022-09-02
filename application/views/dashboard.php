@@ -21,10 +21,10 @@
 
         <div class="col-md-12 col-xs-12">
           <form class="form-inline" action="<?php echo base_url('dashboard/') ?>" method="POST">
-            <div class="form-group">
+            <div class="form-group">  
               <label for="date">Year</label>
               <select class="form-control" name="select_year" id="select_year">
-                <?php foreach ($report_years as $key => $value): ?>
+                <?php foreach ($order_years as $key => $value): ?>
                   <option value="<?php echo $value ?>" <?php if($value == $selected_year) { echo "selected"; } ?>><?php echo $value; ?></option>
                 <?php endforeach ?>
               </select>
@@ -34,12 +34,13 @@
         </div>
         
         <br>
+        <br>
 
         <div class="row">
           <div class="col-lg-6 col-xs-6">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Total Quantity</h3>
+              <h3 class="box-title">Total Sales Amount(gross amount)</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -68,7 +69,7 @@
           <div class="col-lg-6 col-xs-6">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Total Sales</h3>
+                <h3 class="box-title">Total Sales Amount(net amount)</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">

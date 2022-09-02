@@ -59,8 +59,8 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="product_name">Product name</label>
+                <div class="form-group col-lg-6 col-xs-6">
+                  <label for="product_name">Service name</label>
                   <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" value="<?php echo $product_data['name']; ?>"  autocomplete="off"/>
                 </div>
 
@@ -69,17 +69,17 @@
                   <input type="text" class="form-control" id="sku" name="sku" placeholder="Enter sku" value="<?php //echo $product_data['sku']; ?>" autocomplete="off" />
                 </div> -->
 
-                <div class="form-group">
+                <div class="form-group col-lg-6 col-xs-6">
                   <label for="price">Price</label>
                   <input type="text" class="form-control" id="price" name="price" placeholder="Enter price" value="<?php echo $product_data['price']; ?>" autocomplete="off" />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-lg-6 col-xs-6">
                   <label for="qty">Qty</label>
                   <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter Qty" value="<?php echo $product_data['qty']; ?>" autocomplete="off" />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-lg-12 col-xs-12">
                   <label for="description">Description</label>
                   <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter 
                   description" autocomplete="off">
@@ -101,7 +101,7 @@
                   <?php //endforeach ?>
                 <?php //endif; ?> -->
 
-                <div class="form-group">
+                <div class="form-group col-lg-6 col-xs-6">
                   <label for="brands">Brands</label>
                   <?php $brand_data = json_decode($product_data['brand_id']); ?>
                   <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
@@ -111,7 +111,7 @@
                   </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-lg-6 col-xs-6">
                   <label for="category">Category</label>
                   <?php $category_data = json_decode($product_data['category_id']); ?>
                   <select class="form-control select_group" id="category" name="category[]" multiple="multiple">
@@ -121,7 +121,7 @@
                   </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-lg-6 col-xs-6">
                   <label for="store">Store</label>
                   <select class="form-control select_group" id="store" name="store">
                     <?php foreach ($stores as $k => $v): ?>
@@ -130,7 +130,7 @@
                   </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-lg-6 col-xs-6">
                   <label for="store">Availability</label>
                   <select class="form-control" id="availability" name="availability">
                     <option value="1" <?php if($product_data['availability'] == 1) { echo "selected='selected'"; } ?>>Yes</option>

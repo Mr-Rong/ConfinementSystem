@@ -8,6 +8,7 @@ class Model_company extends CI_Model
 	}
 
 	/* get the brand data */
+	// call from order too
 	public function getCompanyData($id = null)
 	{
 		if($id) {

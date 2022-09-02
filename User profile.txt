@@ -10,19 +10,19 @@ Phone : 0167876681
 Gender : Male
 
 2.
-Groups : Confinement Center
-Username : Center A
-Email : centerA@centerA.com
+Groups : Product manager
+Username : Manager A
+Email : ManagerA@ManagerA.com
 Password : center1a
-First name : Confinement
-Last name : Center A
+First name : Account
+Last name : A
 Phone : 0123456789
 Gender : Male
 
 3.
-Groups : Confinement Center
-Username : Center B
-Email : centerB@centerB.com
+Groups : Product manager
+Username : Manager B
+Email : ManagerB@ManagerB.com
 Password : center1b
 First name : Confinement
 Last name : Center b
@@ -30,7 +30,7 @@ Phone : 0123456788
 Gender : Male
 
 4.
-Groups : Individual
+Groups : Director of sales
 Username : Individual A
 Email : indiA@indiA.com
 Password : individuala
@@ -40,7 +40,7 @@ Phone : 01987654321
 Gender : Male
 
 5.
-Groups : Individual
+Groups : Director of sales
 Username : Individual b
 Email : indiB@indiB.com
 Password : individualb

@@ -1,4 +1,6 @@
-
+<?php 
+  date_default_timezone_set('Asia/Kuala_Lumpur');
+?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -45,36 +47,45 @@
 
                 <?php echo validation_errors(); ?>
 
-                <div class="form-group">
-                  <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
-                </div>
-                <div class="form-group">
-                  <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
-                </div>
+                <table style="width:100%;">
+                  <tr>
+                    <td>
+                      <div class="col-md-6 col-xs-12 pull pull-left">
 
-                <div class="col-md-4 col-xs-12 pull pull-left">
+                        <div class="form-group">
+                          <label for="gross_amount" class="col-lg-5 control-label" style="text-align:left;">Customer Name</label>
+                          <div class="col-lg-7">
+                            <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Customer Name" autocomplete="off" />
+                          </div>
+                        </div>
 
-                  <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" autocomplete="off" />
-                    </div>
-                  </div>
+                        <!-- <div class="form-group">
+                          <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
+                          <div class="col-sm-7">
+                            <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" autocomplete="off">
+                          </div>
+                        </div> -->
 
-                  <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" autocomplete="off">
-                    </div>
-                  </div>
+                        <div class="form-group">
+                          <label for="gross_amount" class="col-lg-5 control-label" style="text-align:left;">Customer Phone</label>
+                          <div class="col-lg-7">
+                            <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Customer Phone" autocomplete="off">
+                          </div>
+                        </div>
+                      </div>
 
-                  <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
-                    </div>
-                  </div>
-                </div>
+                    </td>
+                    
+                    <td>
+                      <div class="form-group">
+                        <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
+                      </div>
+                      <div class="form-group">
+                        <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
                 
                 
                 <br /> <br/>
@@ -83,8 +94,8 @@
                     <tr>
                       <th style="width:50%">Product</th>
                       <th style="width:10%">Qty</th>
-                      <th style="width:10%">Rate</th>
-                      <th style="width:20%">Amount</th>
+                      <th style="width:15%">Single amount</th>
+                      <th style="width:15%">Product Amount</th>
                       <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
                     </tr>
                   </thead>
@@ -124,6 +135,7 @@
                       <input type="hidden" class="form-control" id="gross_amount_value" name="gross_amount_value" autocomplete="off">
                     </div>
                   </div>
+
                   <?php if($is_service_enabled == true): ?>
                   <div class="form-group">
                     <label for="service_charge" class="col-sm-5 control-label">S-Charge <?php echo $company_data['service_charge_value'] ?> %</label>
@@ -133,6 +145,7 @@
                     </div>
                   </div>
                   <?php endif; ?>
+
                   <?php if($is_vat_enabled == true): ?>
                   <div class="form-group">
                     <label for="vat_charge" class="col-sm-5 control-label">Vat <?php echo $company_data['vat_charge_value'] ?> %</label>
@@ -142,12 +155,14 @@
                     </div>
                   </div>
                   <?php endif; ?>
+
                   <div class="form-group">
                     <label for="discount" class="col-sm-5 control-label">Discount</label>
                     <div class="col-sm-7">
                       <input type="text" class="form-control" id="discount" name="discount" placeholder="Discount" onkeyup="subAmount()" autocomplete="off">
                     </div>
                   </div>
+
                   <div class="form-group">
                     <label for="net_amount" class="col-sm-5 control-label">Net Amount</label>
                     <div class="col-sm-7">
@@ -242,10 +257,12 @@
 
   }); // /document
 
+
+  //the total amount for 1 product
   function getTotal(row = null) {
     if(row) {
       var total = Number($("#rate_value_"+row).val()) * Number($("#qty_"+row).val());
-      total = total.toFixed(2);
+      
       $("#amount_"+row).val(total);
       $("#amount_value_"+row).val(total);
       
@@ -285,7 +302,7 @@
           $("#qty_value_"+row_id).val(1);
 
           var total = Number(response.price) * 1;
-          total = total.toFixed(2);
+          //total = total.toFixed(2);
           $("#amount_"+row_id).val(total);
           $("#amount_value_"+row_id).val(total);
           
@@ -310,44 +327,43 @@
       totalSubAmount = Number(totalSubAmount) + Number($("#amount_"+count).val());
     } // /for
 
-    totalSubAmount = totalSubAmount.toFixed(2);
-
     // sub total
     $("#gross_amount").val(totalSubAmount);
     $("#gross_amount_value").val(totalSubAmount);
 
     // vat
     var vat = (Number($("#gross_amount").val())/100) * vat_charge;
-    vat = vat.toFixed(2);
+    //vat = vat.toFixed(2);
     $("#vat_charge").val(vat);
     $("#vat_charge_value").val(vat);
 
     // service
     var service = (Number($("#gross_amount").val())/100) * service_charge;
-    service = service.toFixed(2);
+    //service = service.toFixed(2);
     $("#service_charge").val(service);
     $("#service_charge_value").val(service);
     
     // total amount
     var totalAmount = (Number(totalSubAmount) + Number(vat) + Number(service));
     totalAmount = totalAmount.toFixed(2);
-    // $("#net_amount").val(totalAmount);
-    // $("#totalAmountValue").val(totalAmount);
+    $("#net_amount").val(totalAmount);
+    $("#totalAmountValue").val(totalAmount);
 
     var discount = $("#discount").val();
     if(discount) {
       var grandTotal = Number(totalAmount) - Number(discount);
-      grandTotal = grandTotal.toFixed(2);
+      //grandTotal = grandTotal.toFixed(2);
       $("#net_amount").val(grandTotal);
       $("#net_amount_value").val(grandTotal);
     } else {
       $("#net_amount").val(totalAmount);
       $("#net_amount_value").val(totalAmount);
       
-    } // /else discount 
+    } // /else no discount 
 
   } // /sub total amount
 
+  // remove product row
   function removeRow(tr_id)
   {
     $("#product_info_table tbody tr#row_"+tr_id).remove();

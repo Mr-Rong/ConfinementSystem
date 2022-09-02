@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Asia/Kuala_Lumpur');
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Orders extends Admin_Controller 
@@ -64,10 +66,10 @@ class Orders extends Admin_Controller
 			}
 
 			if($value['paid_status'] == 1) {
-				$paid_status = '<span class="label label-success">Paid</span>';	
+				$paid_status = '<span class="label label-success">Agree</span>';	
 			}
 			else {
-				$paid_status = '<span class="label label-warning">Not Paid</span>';
+				$paid_status = '<span class="label label-warning">Not Agree</span>';
 			}
 
 			$result['data'][$key] = array(
@@ -106,7 +108,7 @@ class Orders extends Admin_Controller
         	$order_id = $this->model_orders->create();
         	
         	if($order_id) {
-        		$this->session->set_flashdata('success', 'Successfully created');
+        		$this->session->set_flashdata('success', 'Successfully created new order');
         		redirect('orders/update/'.$order_id, 'refresh');
         	}
         	else {
@@ -146,6 +148,8 @@ class Orders extends Admin_Controller
 	* This function is used in the order page, for the product selection in the table
 	* The response is return on the json format.
 	*/
+
+	//call from create and edit order page
 	public function getTableProductRow()
 	{
 		$products = $this->model_products->getActiveProductData();
@@ -177,7 +181,7 @@ class Orders extends Admin_Controller
         	$update = $this->model_orders->update($id);
         	
         	if($update == true) {
-        		$this->session->set_flashdata('success', 'Successfully updated');
+        		$this->session->set_flashdata('success', 'Successfully updated this order!!');
         		redirect('orders/update/'.$id, 'refresh');
         	}
         	else {
@@ -236,7 +240,7 @@ class Orders extends Admin_Controller
         }
         else {
             $response['success'] = false;
-            $response['messages'] = "Refersh the page again!!";
+            $response['messages'] = "Please refersh this page and try again!!!";
         }
 
         echo json_encode($response); 
@@ -246,6 +250,8 @@ class Orders extends Admin_Controller
 	* It gets the product id and fetch the order data. 
 	* The order print logic is done here 
 	*/
+
+	// call from edit order page
 	public function printDiv($id)
 	{
 		if(!in_array('viewOrder', $this->permission)) {
@@ -253,12 +259,12 @@ class Orders extends Admin_Controller
         }
         
 		if($id) {
-			$order_data = $this->model_orders->getOrdersData($id);
-			$orders_items = $this->model_orders->getOrdersItemData($id);
-			$company_info = $this->model_company->getCompanyData(1);
+			$order_data 	= $this->model_orders->getOrdersData($id);
+			$orders_items 	= $this->model_orders->getOrdersItemData($id);
+			$company_info 	= $this->model_company->getCompanyData(1);
 
-			$order_date = date('d/m/Y', $order_data['date_time']);
-			$paid_status = ($order_data['paid_status'] == 1) ? "Paid" : "Unpaid";
+			$order_date 	= date('d/m/Y', $order_data['date_time']);
+			$paid_status 	= ($order_data['paid_status'] == 1) ? "Paid" : "Unpaid";
 
 			$html = '<!-- Main content -->
 			<!DOCTYPE html>
@@ -296,7 +302,6 @@ class Orders extends Admin_Controller
 			        
 			        <b>Bill ID:</b> '.$order_data['bill_no'].'<br>
 			        <b>Name:</b> '.$order_data['customer_name'].'<br>
-			        <b>Address:</b> '.$order_data['customer_address'].' <br />
 			        <b>Phone:</b> '.$order_data['customer_phone'].'
 			      </div>
 			      <!-- /.col -->

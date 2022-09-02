@@ -10,12 +10,14 @@ class Model_orders extends CI_Model
 	/* get the orders data */
 	public function getOrdersData($id = null)
 	{
+		//fatch the partical order
 		if($id) {
 			$sql = "SELECT * FROM orders WHERE id = ?";
 			$query = $this->db->query($sql, array($id));
 			return $query->row_array();
 		}
 
+		//get all the item descendingly
 		$sql = "SELECT * FROM orders ORDER BY id DESC";
 		$query = $this->db->query($sql);
 		return $query->result_array();
@@ -38,20 +40,20 @@ class Model_orders extends CI_Model
 		$user_id = $this->session->userdata('id');
 		$bill_no = 'BILPR-'.strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));
     	$data = array(
-    		'bill_no' => $bill_no,
-    		'customer_name' => $this->input->post('customer_name'),
-    		'customer_address' => $this->input->post('customer_address'),
-    		'customer_phone' => $this->input->post('customer_phone'),
-    		'date_time' => strtotime(date('Y-m-d h:i:s a')),
-    		'gross_amount' => $this->input->post('gross_amount_value'),
+    		'bill_no' 			=> $bill_no,
+    		'customer_name' 	=> $this->input->post('customer_name'),
+    		//'customer_address' => $this->input->post('customer_address'),
+    		'customer_phone' 	=> $this->input->post('customer_phone'),
+    		'date_time' 		=> strtotime(date('Y-m-d h:i:s a')),
+    		'gross_amount' 		=> $this->input->post('gross_amount_value'),
     		'service_charge_rate' => $this->input->post('service_charge_rate'),
-    		'service_charge' => ($this->input->post('service_charge_value') > 0) ?$this->input->post('service_charge_value'):0,
-    		'vat_charge_rate' => $this->input->post('vat_charge_rate'),
-    		'vat_charge' => ($this->input->post('vat_charge_value') > 0) ? $this->input->post('vat_charge_value') : 0,
-    		'net_amount' => $this->input->post('net_amount_value'),
-    		'discount' => $this->input->post('discount'),
-    		'paid_status' => 2,
-    		'user_id' => $user_id
+    		'service_charge' 	=> ($this->input->post('service_charge_value') > 0) ?$this->input->post('service_charge_value'):0,
+    		'vat_charge_rate' 	=> $this->input->post('vat_charge_rate'),
+    		'vat_charge' 		=> ($this->input->post('vat_charge_value') > 0) ? $this->input->post('vat_charge_value') : 0,
+    		'net_amount' 		=> $this->input->post('net_amount_value'),
+    		'discount' 			=> $this->input->post('discount'),
+    		'paid_status' 		=> 2,
+    		'user_id' 			=> $user_id
     	);
 
 		$insert = $this->db->insert('orders', $data);
@@ -62,11 +64,11 @@ class Model_orders extends CI_Model
 		$count_product = count($this->input->post('product'));
     	for($x = 0; $x < $count_product; $x++) {
     		$items = array(
-    			'order_id' => $order_id,
-    			'product_id' => $this->input->post('product')[$x],
-    			'qty' => $this->input->post('qty')[$x],
-    			'rate' => $this->input->post('rate_value')[$x],
-    			'amount' => $this->input->post('amount_value')[$x],
+    			'order_id' 		=> $order_id,
+    			'product_id' 	=> $this->input->post('product')[$x],
+    			'qty' 			=> $this->input->post('qty')[$x],
+    			'rate' 			=> $this->input->post('rate_value')[$x],
+    			'amount' 		=> $this->input->post('amount_value')[$x],
     		);
 
     		$this->db->insert('orders_item', $items);
@@ -100,18 +102,18 @@ class Model_orders extends CI_Model
 			// fetch the order data 
 
 			$data = array(
-				'customer_name' => $this->input->post('customer_name'),
-	    		'customer_address' => $this->input->post('customer_address'),
-	    		'customer_phone' => $this->input->post('customer_phone'),
-	    		'gross_amount' => $this->input->post('gross_amount_value'),
-	    		'service_charge_rate' => $this->input->post('service_charge_rate'),
-	    		'service_charge' => ($this->input->post('service_charge_value') > 0) ? $this->input->post('service_charge_value'):0,
-	    		'vat_charge_rate' => $this->input->post('vat_charge_rate'),
-	    		'vat_charge' => ($this->input->post('vat_charge_value') > 0) ? $this->input->post('vat_charge_value') : 0,
-	    		'net_amount' => $this->input->post('net_amount_value'),
-	    		'discount' => $this->input->post('discount'),
-	    		'paid_status' => $this->input->post('paid_status'),
-	    		'user_id' => $user_id
+				'customer_name' 		=> $this->input->post('customer_name'),
+	    		//'customer_address' => $this->input->post('customer_address'),
+	    		'customer_phone' 		=> $this->input->post('customer_phone'),
+	    		'gross_amount' 			=> $this->input->post('gross_amount_value'),
+	    		'service_charge_rate' 	=> $this->input->post('service_charge_rate'),
+	    		'service_charge' 		=> ($this->input->post('service_charge_value') > 0) ? $this->input->post('service_charge_value'):0,
+	    		'vat_charge_rate' 		=> $this->input->post('vat_charge_rate'),
+	    		'vat_charge' 			=> ($this->input->post('vat_charge_value') > 0) ? $this->input->post('vat_charge_value') : 0,
+	    		'net_amount' 			=> $this->input->post('net_amount_value'),
+	    		'discount' 				=> $this->input->post('discount'),
+	    		'paid_status' 			=> $this->input->post('paid_status'),
+	    		'user_id' 				=> $user_id
 	    	);
 
 			$this->db->where('id', $id);
@@ -141,11 +143,11 @@ class Model_orders extends CI_Model
 			$count_product = count($this->input->post('product'));
 	    	for($x = 0; $x < $count_product; $x++) {
 	    		$items = array(
-	    			'order_id' => $id,
-	    			'product_id' => $this->input->post('product')[$x],
-	    			'qty' => $this->input->post('qty')[$x],
-	    			'rate' => $this->input->post('rate_value')[$x],
-	    			'amount' => $this->input->post('amount_value')[$x],
+	    			'order_id' 		=> $id,
+	    			'product_id' 	=> $this->input->post('product')[$x],
+	    			'qty' 			=> $this->input->post('qty')[$x],
+	    			'rate' 			=> $this->input->post('rate_value')[$x],
+	    			'amount' 		=> $this->input->post('amount_value')[$x],
 	    		);
 	    		$this->db->insert('orders_item', $items);
 
@@ -175,18 +177,58 @@ class Model_orders extends CI_Model
 		}
 	}
 
-	public function countTotalOrder()
+
+	/*getting the total months*/
+	private function months()
 	{
-		$sql = "SELECT * FROM orders";
-		$query = $this->db->query($sql, array(1));
-		return $query->result_array();
+		return array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
 	}
 
-	public function countTotalPaidOrders()
+	// getting the year of the orders
+	public function getOrderYear()
 	{
-		$sql = "SELECT * FROM orders";
+		$sql = "SELECT * FROM orders WHERE paid_status = ?";
 		$query = $this->db->query($sql, array(1));
-		return $query->result_array();
+		$result = $query->result_array();
+		
+		$return_data = array();
+		foreach ($result as $k => $v) {
+			$date = date('Y', $v['date_time']);
+			$return_data[] = $date;
+		}
+				$return_data = array_unique($return_data);
+				return $return_data;
+		
+	}
+	
+	public function countTotalOrder($year)
+	{
+		if($year) {
+			$months = $this->months();
+			
+			$sql = "SELECT * FROM orders";
+			$query = $this->db->query($sql, array(1));
+			$result = $query->result_array(); //get multiple row of data from sql
+	
+			$final_data = array();
+			foreach ($months as $month_k => $month_y) {
+				$get_mon_year = $year.'-'.$month_y;	
+	
+				$final_data[$get_mon_year][] = '';
+				foreach ($result as $k => $v) {
+					$month_year = date('Y-m', $v['date_time']);
+	
+					if($get_mon_year == $month_year) {
+						$final_data[$get_mon_year][] = $v;
+					}
+				}
+			}	
+	
+	
+			return $final_data;
+				
+		}
+	
 	}
 
 }

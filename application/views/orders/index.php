@@ -1,4 +1,6 @@
-
+<?php 
+  date_default_timezone_set('Asia/Kuala_Lumpur');
+?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -50,11 +52,11 @@
               <tr>
                 <th>Bill no</th>
                 <th>Customer Name</th>
-                <th>Customer Phone</th>
+                <th>Phone No</th>
                 <th>Date Time</th>
                 <th>Total Products</th>
                 <th>Total Amount</th>
-                <th>Paid status</th>
+                <th>Agree status</th>
                 <?php if(in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
                   <th>Action</th>
                 <?php endif; ?>
