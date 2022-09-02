@@ -37,7 +37,7 @@ class Model_reports extends CI_Model
 		if($year) {
 			$months = $this->months();
 			
-			$sql = "SELECT * FROM orders WHERE paid_status = ?";
+			$sql = "SELECT * FROM orders";
 			$query = $this->db->query($sql, array(1));
 			$result = $query->result_array(); //get multiple row of data from sql
 

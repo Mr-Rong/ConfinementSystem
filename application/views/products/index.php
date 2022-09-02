@@ -35,13 +35,13 @@
         <?php endif; ?>
 
         <?php if(in_array('createProduct', $user_permission)): ?>
-          <a href="<?php echo base_url('products/create') ?>" class="btn btn-primary">Add Product</a>
+          <a href="<?php echo base_url('products/create') ?>" class="btn btn-primary">Add Service</a>
           <br /> <br />
         <?php endif; ?>
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Manage Products</h3>
+            <h3 class="box-title">Manage Services</h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -50,8 +50,8 @@
               <tr>
                 <th>Image</th>
                 <!-- <th>SKU</th> -->
-                <th>Product Name</th>
-                <th>Price</th>
+                <th>Service Name</th>
+                <th>Price(RM)</th>
                 <th>Qty</th>
                 <th>Store</th>
                 <th>Availability</th>
@@ -84,7 +84,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Remove Product</h4>
+        <h4 class="modal-title">Remove Service</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('products/remove') ?>" method="post" id="removeForm">

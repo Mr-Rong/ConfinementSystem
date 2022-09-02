@@ -7,7 +7,7 @@ class Reports extends Admin_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->data['page_title'] = 'Stores';
+		$this->data['page_title'] = 'Report';
 		$this->load->model('model_reports');
 	}
 
@@ -42,7 +42,7 @@ class Reports extends Admin_Controller
 				$total_amount_earned = array();
 				foreach ($v as $k2 => $v2) {
 					if($v2) {
-						$total_amount_earned[] = $v2['gross_amount'];						
+						$total_amount_earned[] = $v2['net_amount'];						
 					}
 				}
 				$final_parking_data[$k] = array_sum($total_amount_earned);	

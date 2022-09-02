@@ -45,36 +45,49 @@
 
                 <?php echo validation_errors(); ?>
 
-                <div class="form-group">
-                  <label for="date" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
-                </div>
-                <div class="form-group">
-                  <label for="time" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
-                </div>
+                <table style="width:100%;">
+                  <tr>
+                    <td>
+                      <div class="col-md-6 col-xs-12 pull pull-left">
 
-                <div class="col-md-4 col-xs-12 pull pull-left">
+                        <div class="form-group">
+                          <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
+                          <div class="col-sm-7">
+                            <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" value="<?php echo $order_data['order']['customer_name'] ?>" autocomplete="off"/>
+                          </div>
+                        </div>
 
-                  <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" value="<?php echo $order_data['order']['customer_name'] ?>" autocomplete="off"/>
-                    </div>
-                  </div>
+                        <!-- <div class="form-group">
+                          <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
+                          <div class="col-sm-7">
+                            <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" value="<?php echo $order_data['order']['customer_address'] ?>" autocomplete="off">
+                          </div>
+                        </div> -->
 
-                  <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" value="<?php echo $order_data['order']['customer_address'] ?>" autocomplete="off">
-                    </div>
-                  </div>
+                        <div class="form-group">
+                          <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
+                          <div class="col-sm-7">
+                            <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" value="<?php echo $order_data['order']['customer_phone'] ?>" autocomplete="off">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
 
-                  <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" value="<?php echo $order_data['order']['customer_phone'] ?>" autocomplete="off">
-                    </div>
-                  </div>
-                </div>
+
+                    <td>
+                      <div class="form-group">
+                        <label for="date" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
+                      </div>
+                      <div class="form-group">
+                        <label for="time" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+
+
+
                 
                 
                 <br /> <br/>
@@ -83,8 +96,8 @@
                     <tr>
                       <th style="width:50%">Product</th>
                       <th style="width:10%">Qty</th>
-                      <th style="width:10%">Rate</th>
-                      <th style="width:20%">Amount</th>
+                      <th style="width:15%">Single amount</th>
+                      <th style="width:15%">Product Amount</th>
                       <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
                     </tr>
                   </thead>
@@ -184,7 +197,7 @@
                 <input type="hidden" name="vat_charge_rate" value="<?php echo $company_data['vat_charge_value'] ?>" autocomplete="off">
 
                 <a target="__blank" href="<?php echo base_url() . 'orders/printDiv/'.$order_data['order']['id'] ?>" class="btn btn-default" >Print</a>
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-primary">Save Changes</a></button>
                 <a href="<?php echo base_url('orders/') ?>" class="btn btn-warning">Back</a>
               </div>
             </form>

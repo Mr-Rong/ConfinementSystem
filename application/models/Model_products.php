@@ -21,6 +21,7 @@ class Model_products extends CI_Model
 		return $query->result_array();
 	}
 
+	// call from controller_order
 	public function getActiveProductData()
 	{
 		$sql = "SELECT * FROM products WHERE availability = ? ORDER BY id DESC";

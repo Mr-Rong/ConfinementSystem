@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/AdminLTE.min.css') ?>">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/iCheck/square/purple.css') ?>">
-
+  <link rel="icon" style="" href="assets/images/Logo/Logo.png">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -32,12 +32,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <img src="assets/images/Logo/Logo.png" style = "width:25px; border-radius:60%; ">
-    </br>
-    <b>Login</b>
+    <img src="assets/images/Logo/Logo.png" style = "width:150px; border-radius:50%; ">
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body" style="border-radius:10px;">
+  <h2 style="text-align:center;"><b>Login</b></h2>
     <p class="login-box-msg">Welcome to Mothercare Confinement System</p>
 
     <?php echo validation_errors(); ?>

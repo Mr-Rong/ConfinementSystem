@@ -107,7 +107,7 @@
                          ?>></td>
                       </tr>
                       <tr>
-                        <td>Brands</td>
+                        <td>Duration</td>
                         <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="createBrand" <?php if($serialize_permission) {
                           if(in_array('createBrand', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
@@ -151,21 +151,21 @@
                           if(in_array('deleteStore', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
                       </tr>
-                      <tr>
+                      <!-- <tr>
                         <td>Attributes</td>
                         <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="createAttribute" <?php if($serialize_permission) {
-                          if(in_array('createAttribute', $serialize_permission)) { echo "checked"; } 
+                          //if(in_array('createAttribute', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
                         <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="updateAttribute" <?php if($serialize_permission) {
-                          if(in_array('updateAttribute', $serialize_permission)) { echo "checked"; } 
+                          //if(in_array('updateAttribute', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
                         <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="viewAttribute" <?php if($serialize_permission) {
-                          if(in_array('viewAttribute', $serialize_permission)) { echo "checked"; } 
+                          //if(in_array('viewAttribute', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
                         <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="deleteAttribute" <?php if($serialize_permission) {
-                          if(in_array('deleteAttribute', $serialize_permission)) { echo "checked"; } 
+                          //if(in_array('deleteAttribute', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
-                      </tr>
+                      </tr> -->
                       <tr>
                         <td>Products</td>
                         <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="createProduct" <?php if($serialize_permission) {
@@ -196,15 +196,15 @@
                           if(in_array('deleteOrder', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
                       </tr>
-                      <tr>
+                      <!-- <tr>
                         <td>Reports</td>
                         <td> - </td>
                         <td> - </td>
                         <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="viewReports" <?php if($serialize_permission) {
-                          if(in_array('viewReports', $serialize_permission)) { echo "checked"; } 
+                          //if(in_array('viewReports', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
                         <td> - </td>
-                      </tr>
+                      </tr> -->
                       <tr>
                         <td>Company</td>
                         <td> - </td>

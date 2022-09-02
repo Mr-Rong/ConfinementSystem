@@ -17,7 +17,7 @@
             <li class="treeview" id="mainUserNav">
             <a href="#">
               <i class="fa fa-users"></i>
-              <span>Profile</span>
+              <span>User</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -89,6 +89,10 @@
           </li>
           <?php //endif; ?> -->
 
+          
+          <?php if(in_array('updateCompany', $user_permission)): ?>
+            <li id="companyNav"><a href="<?php echo base_url('company/') ?>"><i class="fa fa-files-o"></i> <span>Company</span></a></li>
+          <?php endif; ?>
 
           <?php if(in_array('createProduct', $user_permission) || in_array('updateProduct', $user_permission) || in_array('viewProduct', $user_permission) || in_array('deleteProduct', $user_permission)): ?>
             <li class="treeview" id="mainProductNav">
@@ -131,19 +135,16 @@
             </li>
           <?php endif; ?>
 
-          <?php if(in_array('viewReports', $user_permission)): ?>
+          <!-- <?php //if(in_array('viewReports', $user_permission)): ?>
             <li id="reportNav">
-              <a href="<?php echo base_url('reports/') ?>">
+              <a href="<?php //echo base_url('reports/') ?>">
                 <i class="glyphicon glyphicon-stats"></i> <span>Reports</span>
               </a>
             </li>
-          <?php endif; ?>
+          <?php //endif; ?> -->
 
 
 
-          <?php if(in_array('updateCompany', $user_permission)): ?>
-            <li id="companyNav"><a href="<?php echo base_url('company/') ?>"><i class="fa fa-files-o"></i> <span>Company</span></a></li>
-          <?php endif; ?>
 
        
 

@@ -67,12 +67,12 @@ if ( ! function_exists('now'))
 			$timezone = config_item('time_reference');
 		}
 
-		if ($timezone === 'local' OR $timezone === date_default_timezone_get())
+		if ($timezone === 'UP8' OR $timezone === date_default_timezone_set("UP8"))
 		{
 			return time();
 		}
 
-		$datetime = new DateTime('now', new DateTimeZone($timezone));
+		$datetime = new DateTime('now', new DateTimeZone(date_default_timezone_set("Asia/Kuala_Lumpur")));
 		sscanf($datetime->format('j-n-Y G:i:s'), '%d-%d-%d %d:%d:%d', $day, $month, $year, $hour, $minute, $second);
 
 		return mktime($hour, $minute, $second, $month, $day, $year);
@@ -356,7 +356,7 @@ if ( ! function_exists('gmt_to_local'))
 	 * @param	bool	whether DST is active
 	 * @return	int
 	 */
-	function gmt_to_local($time = '', $timezone = 'UTC', $dst = FALSE)
+	function gmt_to_local($time = '', $timezone = 'UP8', $dst = FALSE)
 	{
 		if ($time === '')
 		{
@@ -569,12 +569,12 @@ if ( ! function_exists('timezone_menu'))
 	 * @param	mixed	attributes
 	 * @return	string
 	 */
-	function timezone_menu($default = 'UTC', $class = '', $name = 'timezones', $attributes = '')
+	function timezone_menu($default = 'UP8', $class = '', $name = 'timezones', $attributes = '')
 	{
 		$CI =& get_instance();
 		$CI->lang->load('date');
 
-		$default = ($default === 'GMT') ? 'UTC' : $default;
+		$default = ($default === 'GMT') ? 'UP8' : $default;
 
 		$menu = '<select name="'.$name.'"';
 
